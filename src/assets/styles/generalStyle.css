@@ -1,0 +1,9 @@
+.menuLink{
+    text-decoration: none;
+    color: rgb(209, 207, 207);
+    transition: all 0.2s linear;
+    font-family: sans-serif;
+}
+.menuLink:hover{
+    color:#fff
+}

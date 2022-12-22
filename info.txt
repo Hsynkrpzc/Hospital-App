@@ -1,0 +1,43 @@
+Kullanılacak teknolojiler,
+
+1- Fake Api backend için json server
+2- Yapılacak isteler için axios
+3- Sayfalama için react-router-dom 6
+4- State management (redux) // state yönetimi için kullanılır.
+5- UI - user interface // stillendirme için bootstrap kullanacağız.
+
+
+İş kuralları ,
+-> Projede iki sayfa bulunacak
+Randevularda randevular listelenecek,
+randevu eklenecek ,
+iptal edilebilecek,
+güncellenebilecek.
+-> Randevu eklendiğinde hasta otomatik olarak oluşturulacak
+
+---> Randevuda bulunacak bilgiler ---
+{
+    id,
+    date,
+    patientId 
+}
+
+->Hastada bulunacak bilgiler,
+
+{
+    id,
+    name,
+    surname,
+    phone,
+    şikayet,
+    işlemler : [] // tipi dizi, birden fazla gelmiş olabilir, birden fazla şikayet olabilir,
+    // ve bu dizinde aşağıdaki işlemlerin id 'si olmalı.
+}
+
+ -> İşlemler
+ {
+    id,
+    şikayet,
+    uygulanan tedavi,
+    yazılan ilaçlar,
+ }

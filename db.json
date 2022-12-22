@@ -1,0 +1,123 @@
+{
+  "randevular": [
+    {
+      "id": "1671283178831",
+      "date": "2022-12-14T19:18",
+      "hastaId": "1670962874757"
+    },
+    {
+      "id": "1671283845534",
+      "date": "2022-12-26T21:35",
+      "hastaId": "1671278325954"
+    },
+    {
+      "id": "1671297034528",
+      "date": "2022-12-26T13:30",
+      "hastaId": "function getTime() { [native code] }"
+    }
+  ],
+  "hastalar": [
+    {
+      "id": "1670962874757",
+      "name": "hüseyin ",
+      "surname": "kkkk",
+      "phone": "05061884546",
+      "islemIds": [
+        "1670962874721",
+        "1671282697306",
+        "1671283178832"
+      ]
+    },
+    {
+      "id": "1671278325954",
+      "name": "asuman",
+      "surname": "çokgezen",
+      "phone": "05061883223",
+      "islemIds": [
+        "1671278325892",
+        "1671283845535"
+      ]
+    },
+    {
+      "id": "function getTime() { [native code] }",
+      "name": "hülya",
+      "surname": "konuşan",
+      "phone": "05061883225",
+      "islemIds": [
+        "1671297034527"
+      ]
+    },
+    {
+      "id": "1671297574929",
+      "name": "mehmet  ahmet",
+      "surname": "eminoğlu",
+      "phone": "05061883220",
+      "islemIds": [
+        "1671297574860"
+      ]
+    }
+  ],
+  "islemler": [
+    {
+      "id": "1",
+      "sikayet": "grip",
+      "uygulananTedavi": "2 gün istiharat tavsiye edildi",
+      "yazilanIlaclar": [
+        "Parol",
+        "Katarin",
+        "Agumentine"
+      ]
+    },
+    {
+      "id": "",
+      "sikayet": "bel ağrısı",
+      "uygulananTedavi": "ayakta",
+      "yazilanIlaclar": [
+        "Arveles",
+        "Voltaren"
+      ]
+    },
+    {
+      "id": "1670962874721",
+      "sikayet": "sıkıldım",
+      "uygulananTedavi": "",
+      "yazilanIlaclar": []
+    },
+    {
+      "id": "1671278325892",
+      "sikayet": "bacak ağrısı",
+      "uygulananTedavi": "",
+      "yazilanIlaclar": []
+    },
+    {
+      "id": "1671282697306",
+      "sikayet": "bel ağrısı",
+      "uygulananTedavi": "",
+      "yazilanIlaclar": []
+    },
+    {
+      "id": "1671283178832",
+      "sikayet": "ghgh",
+      "uygulananTedavi": "",
+      "yazilanIlaclar": []
+    },
+    {
+      "id": "1671283845535",
+      "sikayet": "ayak ağrsı",
+      "uygulananTedavi": "",
+      "yazilanIlaclar": []
+    },
+    {
+      "id": "1671297034527",
+      "sikayet": "çene ağrısı",
+      "uygulananTedavi": "",
+      "yazilanIlaclar": []
+    },
+    {
+      "id": "1671297574860",
+      "sikayet": "kulak çınlaması",
+      "uygulananTedavi": "",
+      "yazilanIlaclar": []
+    }
+  ]
+}
