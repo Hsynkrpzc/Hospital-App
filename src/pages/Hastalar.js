@@ -135,7 +135,11 @@ const Hastalar = (props) => {
                         >
                           Sil
                         </Button>
-                        <Button variant="outlined" color="secondary">
+                        <Button
+                          variant="outlined"
+                          color="secondary"
+                          onClick={() => navigate(`/hasta-detay/${hasta.id}`)}
+                        >
                           Detaylar
                         </Button>
                       </Stack>

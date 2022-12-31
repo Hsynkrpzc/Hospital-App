@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Header from "../components/Header";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
+// import api from "api";
+import api from "../api/api";
+import urls from "../api/urls";
 
 const RandevuEkle = (props) => {
   const [date, setDate] = useState("");
@@ -14,14 +17,19 @@ const RandevuEkle = (props) => {
   const [hastalar, setHastalar] = useState(null);
   const [hasHasta, setHasHasta] = useState(false);
   const navigate = useNavigate();
+  const [randevular, setRandevular] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3004/hastalar")
+    api
+      .get(urls.hastalar)
       .then((res) => {
         setHastalar(res.data);
       })
       .catch((err) => console.log("randevuEkle Hastalar çekme Err", err));
+    api
+      .get(urls.randevular)
+      .then((res) => setRandevular(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
   const handleSubmit = (event) => {
@@ -36,6 +44,14 @@ const RandevuEkle = (props) => {
       alert("Telefon numarası 11 haneli olmalıdır. 0506*******");
       return;
     }
+
+    const isAvaliableDate = randevular.find((item) => item.date === date);
+    console.log(isAvaliableDate);
+    if (isAvaliableDate !== undefined) {
+      alert("Seçtiğiniz günde bu randevu saati doludur.");
+      return;
+    }
+
     if (hasHasta) {
       const newRandevu = {
         id: String(new Date().getTime()),
@@ -52,22 +68,22 @@ const RandevuEkle = (props) => {
         ...hasHasta,
         islemIds: [...hasHasta.islemIds, newIslem.id],
       };
-      axios
-        .post("http://localhost:3004/randevular", newRandevu)
+      api
+        .post(urls.randevular, newRandevu)
         .then((res) => {
           console.log("newRandevu res", res);
         })
         .catch((err) => console.log("newRandevu err", err));
 
-      axios
-        .post("http://localhost:3004/islemler", newIslem)
+      api
+        .post(urls.islemler, newIslem)
         .then((res) => {
           console.log("newIslem res", res);
         })
         .catch((err) => console.log("newIslem err,err"));
 
-      axios
-        .put(`http://localhost:3004/hastalar/${hasHasta.id}`, updatedHasta)
+      api
+        .put(`${urls.hastalar}/${hasHasta.id}`, updatedHasta)
         .then((res) => {
           console.log("updated hasta res", res);
         })
@@ -92,20 +108,20 @@ const RandevuEkle = (props) => {
         date: date,
         hastaId: newHasta.id,
       };
-      axios
-        .post("http://localhost:3004/randevular", newHastaRandevu)
+      api
+        .post(urls.randevular, newHastaRandevu)
         .then((res) => {
           console.log("newHstaRandevu res", res);
         })
         .catch((err) => console.log("newHstaRandevu err", err));
-      axios
-        .post("http://localhost:3004/islemler", newHastaIslem)
+      api
+        .post(urls.islemler, newHastaIslem)
         .then((res) => {
           console.log("newHastaIslm res", res);
         })
         .catch((err) => console.log("nnewHastaIslm err", err));
-      axios
-        .post("http://localhost:3004/hastalar", newHasta)
+      api
+        .post(urls.hastalar, newHasta)
         .then((res) => {
           console.log("randevuEkle NewHasta", res);
         })
@@ -113,10 +129,6 @@ const RandevuEkle = (props) => {
       navigate("/");
     }
   };
-
-  if (hastalar === null) {
-    <h1>Loading...</h1>;
-  }
 
   const handlePhoneChange = (event) => {
     setPhone(event.target.value);
@@ -134,6 +146,10 @@ const RandevuEkle = (props) => {
       setHasHasta(false);
     }
   };
+
+  if (hastalar === null || randevular === null) {
+    <h1>Loading...</h1>;
+  }
 
   return (
     <div>

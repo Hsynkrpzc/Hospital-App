@@ -26,7 +26,10 @@ const EditHastaModal = (props) => {
   const [name, setName] = useState(hasta?.name);
   const [surname, setSurname] = useState(hasta?.surname);
   const [phone, setPhone] = useState(hasta?.phone);
-
+  const [hasNameError, setHasNameError] = useState(false);
+  const [hasSurnameError, setHasSurnameError] = useState(false);
+  const [hasPhoneError, setHasPhoneError] = useState(false);
+  const [phoneErrorMessage, setPhoneErrorMessage] = useState("");
   useEffect(() => {
     setName(hasta?.name);
     setSurname(hasta?.surname);
@@ -36,13 +39,37 @@ const EditHastaModal = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (name === "" || surname === "" || phone === "") {
-      alert("Tüm alanların doldurulması zorunludur!");
+    if (name === "") {
+      setHasNameError(true);
+      setTimeout(() => {
+        setHasNameError(false);
+      }, 3000);
+      return;
+    }
+    if (surname === "") {
+      setHasSurnameError(true);
+      setTimeout(() => {
+        setHasSurnameError(false);
+      }, 3000);
+      return;
+    }
+    if (phone === "") {
+      setHasPhoneError(true);
+      setPhoneErrorMessage("*Telefon numarası alanı zorunludur. ");
+      setTimeout(() => {
+        setHasPhoneError(false);
+        setPhoneErrorMessage("");
+      }, 3000);
       return;
     }
 
     if (phone.length !== 11) {
-      alert("Telefon numarası 11 haneli olmalıdır!");
+      setHasPhoneError(true);
+      setPhoneErrorMessage("*Telefon numarası 11 haneli olmalıdır.");
+      setTimeout(() => {
+        setHasPhoneError(false);
+        setPhoneErrorMessage("");
+      }, 3000);
       return;
     }
     const filteredHastalar = hastalar.filter(
@@ -83,6 +110,7 @@ const EditHastaModal = (props) => {
             <div
               style={{
                 display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
                 margin: "20px 0px",
               }}
@@ -95,10 +123,18 @@ const EditHastaModal = (props) => {
                 value={name}
                 onChange={(event) => setName(event.target.value)}
               />
+              {hasNameError && (
+                <p>
+                  <small style={{ color: "orangered" }}>
+                    *İsim alanı zorunludur.
+                  </small>
+                </p>
+              )}
             </div>
             <div
               style={{
                 display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
                 margin: "20px 0px",
               }}
@@ -111,10 +147,18 @@ const EditHastaModal = (props) => {
                 value={surname}
                 onChange={(event) => setSurname(event.target.value)}
               />
+              {hasSurnameError && (
+                <p>
+                  <small style={{ color: "orangered" }}>
+                    *Soyisim alanı zorunludur.
+                  </small>
+                </p>
+              )}
             </div>
             <div
               style={{
                 display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
                 margin: "20px 0px",
               }}
@@ -127,6 +171,13 @@ const EditHastaModal = (props) => {
                 value={phone}
                 onChange={(event) => setPhone(event.target.value)}
               />
+              {hasPhoneError && (
+                <p>
+                  <small style={{ color: "orangered" }}>
+                    {phoneErrorMessage}
+                  </small>
+                </p>
+              )}
             </div>
             <div
               style={{

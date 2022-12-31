@@ -1,0 +1,78 @@
+-------------------------------------
+   <<<<<<<<<<   REDUCERS >>>>>>>>>>
+-------------------------------------
+STORE AŞAĞIDA ANLATILIYOR,
+1-başlangıç state yani initial state oluşturulur,
+2- reduce'yaz
+3-reducer bir fonksiyondur,
+;görevi  ilgili state de action type göre bir değişiklik yapmak.
+4-kendisine subscribe olan componentleri render eder.
+5-reducer tanımlanırken if else veya switch case kullanılır,
+artık switch case moda ve daha hızlı çakışır.
+6-
+ switch (action.type) {
+        case value:
+            
+            break;
+    
+        default:
+            break;
+    }
+
+   (action.type) yazdık buna bakarız,
+
+   VE EN ÖNEMLİSİ
+
+    switch (action.type) {
+        case value:
+            
+            break;
+    
+        default:
+            return state ;  // hiçbir case e uymuyorsa state e geri dönsün
+    }
+
+    BUNU UNUTMUYORUZ UNUTURSAK HATA ALIRIZ VE ÇÖZÖNE KADAR ÜZÜLÜRSÜN.
+
+----------------------------------------
+  <<<<<<<<  STORE OLUŞTURMA   >>>>>>>>
+----------------------------------------
+
+  1 REDUCERLAR IMPORT EDİLİR.
+  2 IMPORT edilen reducer'lar combine yani birleştir.
+  3 combine edilen state'ler store yüklenir.
+  import { combineReducers } from "redux";
+
+  const a ={}  OBJE
+
+  const rootReducer = combineReducers({
+  hastalarState: hastalarReducer,
+  randevularState: randevularReducer,
+  islemlerState: islemlerReducer,
+});   OBJE
+
+
+const rootReducer = combineReducers({ }); obje
+
+6 - import { combineReducers , createStore } from "redux"; 
+
+7 - const store = createStore(rootReducer); yazılır
+
+8- INDEX.JS YE GİDİLİR
+ import { Provider } from 'react-redux';
+ provider ı ile App uygulamamız sarılır , böylece uygulama sarılır. yani App.js
+
+ Provider;
+   App ve diğer componentlere tanıtım yapar.
+
+ import store from './redux/store';
+
+   
+  <React.StrictMode>
+   <Provider store={store}> /// dikkat burada  ÖNEMLİ
+    <App />
+    </Provider>
+  </React.StrictMode>
+);
+
+9-

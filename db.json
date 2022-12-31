@@ -14,24 +14,35 @@
       "id": "1671297034528",
       "date": "2022-12-26T13:30",
       "hastaId": "function getTime() { [native code] }"
+    },
+    {
+      "id": "1672088066421",
+      "date": "2022-12-24T10:49",
+      "hastaId": "1670962874757"
+    },
+    {
+      "id": "1672259202160",
+      "date": "2022-12-29T11:30",
+      "hastaId": "1670962874757"
     }
   ],
   "hastalar": [
     {
       "id": "1670962874757",
-      "name": "hüseyin ",
-      "surname": "kkkk",
+      "name": "Hüseyin ",
+      "surname": "SAVRANLI",
       "phone": "05061884546",
       "islemIds": [
         "1670962874721",
         "1671282697306",
-        "1671283178832"
+        "1671283178832",
+        "1672088066422"
       ]
     },
     {
       "id": "1671278325954",
       "name": "asuman",
-      "surname": "çokgezen",
+      "surname": "Çokgezen",
       "phone": "05061883223",
       "islemIds": [
         "1671278325892",
@@ -41,7 +52,7 @@
     {
       "id": "function getTime() { [native code] }",
       "name": "hülya",
-      "surname": "konuşan",
+      "surname": "Konuşan",
       "phone": "05061883225",
       "islemIds": [
         "1671297034527"
@@ -54,6 +65,24 @@
       "phone": "05061883220",
       "islemIds": [
         "1671297574860"
+      ]
+    },
+    {
+      "id": "1671739538255",
+      "name": "hayri",
+      "surname": "baba",
+      "phone": "05061822296",
+      "islemIds": [
+        "1671739538213"
+      ]
+    },
+    {
+      "id": "1671821175962",
+      "name": "abdi",
+      "surname": "mehmetoğlu",
+      "phone": "05061883242",
+      "islemIds": [
+        "1671821175919"
       ]
     }
   ],
@@ -79,25 +108,31 @@
     },
     {
       "id": "1670962874721",
-      "sikayet": "sıkıldım",
-      "uygulananTedavi": "",
-      "yazilanIlaclar": []
+      "sikayet": "Yorgunluk",
+      "uygulananTedavi": "dinlenme",
+      "yazilanIlaclar": [
+        "B12 ",
+        " D ",
+        " Folik Asit"
+      ]
     },
     {
       "id": "1671278325892",
-      "sikayet": "bacak ağrısı",
+      "sikayet": "*acak ağrısı",
       "uygulananTedavi": "",
       "yazilanIlaclar": []
     },
     {
       "id": "1671282697306",
-      "sikayet": "bel ağrısı",
-      "uygulananTedavi": "",
-      "yazilanIlaclar": []
+      "sikayet": "Bel ağrısı",
+      "uygulananTedavi": "Eksersiz verildi",
+      "yazilanIlaclar": [
+        "Kas gevşetici hap, Kas gevşetici krem"
+      ]
     },
     {
       "id": "1671283178832",
-      "sikayet": "ghgh",
+      "sikayet": "Stres",
       "uygulananTedavi": "",
       "yazilanIlaclar": []
     },
@@ -116,6 +151,32 @@
     {
       "id": "1671297574860",
       "sikayet": "kulak çınlaması",
+      "uygulananTedavi": "",
+      "yazilanIlaclar": []
+    },
+    {
+      "id": "1671739538213",
+      "sikayet": "internet bağımlılığı",
+      "uygulananTedavi": "",
+      "yazilanIlaclar": []
+    },
+    {
+      "id": "1671821175919",
+      "sikayet": "halsizlik",
+      "uygulananTedavi": "B12 , Folik Asit",
+      "yazilanIlaclar": [
+        "Folibol"
+      ]
+    },
+    {
+      "id": "1672088066422",
+      "sikayet": "Sinüzit",
+      "uygulananTedavi": "",
+      "yazilanIlaclar": []
+    },
+    {
+      "id": "1672259202162",
+      "sikayet": "abcd",
       "uygulananTedavi": "",
       "yazilanIlaclar": []
     }
