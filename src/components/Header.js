@@ -8,8 +8,11 @@ import Typography from "@mui/material/Typography";
 // import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import "../assets/styles/generalStyle.css";
+import { useSelector } from "react-redux";
 
 const Header = (props) => {
+  const {hastalarState} = useSelector((state) => state);
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -29,6 +32,9 @@ const Header = (props) => {
             <Link className="menuLink" to="/hastalar">
               Hastalar
             </Link>
+            <span className="menuLink">
+              Sistemde Kayıtlı Hasta Sayısı : {hastalarState.hastalar.lenght}
+            </span>
           </div>
         </Toolbar>
       </AppBar>
@@ -38,4 +44,3 @@ const Header = (props) => {
 export default Header;
 
 
-// 3. ders 10.dk

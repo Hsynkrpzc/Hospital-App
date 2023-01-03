@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+// import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -8,30 +9,40 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
-import axios from "axios";
+// import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Home = () => {
-  const [randevular, setRandevular] = useState(null);
-  const [hastalar, setHastalar] = useState(null);
+  // const [randevular, setRandevular] = useState(null);
+  // const [hastalar, setHastalar] = useState(null);
   const navigate = useNavigate();
+  const { randevularState, hastalarState } = useSelector((state) => state);
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:3004/randevular")
-      .then((resRandevular) => {
-        setRandevular(resRandevular.data);
-        axios
-          .get("http://localhost:3004/hastalar")
-          .then((resHastalar) => {
-            setHastalar(resHastalar.data);
-          })
-          .catch((err) => console.log("hastalar çekme hatası", err));
-      })
-      .catch((err) => console.log("randevular çekme hatası", err));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:3004/randevular")
+  //     .then((resRandevular) => {
+  //       setRandevular(resRandevular.data);
+  //       axios
+  //         .get("http://localhost:3004/hastalar")
+  //         .then((resHastalar) => {
+  //           setHastalar(resHastalar.data);
+  //         })
+  //         .catch((err) => console.log("hastalar çekme hatası", err));
+  //     })
+  //     .catch((err) => console.log("randevular çekme hatası", err));
+  // }, []);
 
-  if (randevular === null || hastalar === null) {
+  // if (randevular === null || hastalar === null) {
+  //   return <h1>Loading</h1>;
+  // }
+  if (
+    hastalarState.start === true ||
+    hastalarState.fail === true ||
+    randevularState.start === true ||
+    randevularState.fail === true
+  ) {
     return <h1>Loading</h1>;
   }
 
@@ -61,8 +72,8 @@ const Home = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {randevular.map((randevu) => {
-              const aradigimHasta = hastalar.find(
+            {randevularState.randevular.map((randevu) => {
+              const aradigimHasta = hastalarState.hastalar.find(
                 (hasta) => hasta.id === randevu.hastaId
               );
               return (
